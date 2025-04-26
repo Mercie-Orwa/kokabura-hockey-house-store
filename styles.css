@@ -1,0 +1,541 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: #333; /* Dark gray text for better readability */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto; /* Changed from overflow: hidden to allow scrolling */
+}
+
+/* Background Slider */
+.background-slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeBackground 15s infinite;
+    z-index: -1;
+}
+
+/* Keyframes for fading */
+@keyframes fadeBackground {
+    0%, 100% { opacity: 0; }
+    16.66%, 33.33% { opacity: 1; }
+    49.99%, 66.66% { opacity: 0; }
+}
+
+/* Delay each image's animation */
+.background-slider img:nth-child(1) { animation-delay: 0s; }
+.background-slider img:nth-child(2) { animation-delay: 5s; }
+.background-slider img:nth-child(3) { animation-delay: 10s; }
+
+/* Header and Navigation */
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto; /* Enable scrolling for main content */
+}
+
+/* Welcome Message */
+main::before {
+    content: "Welcome to Kokabura Hockey House!";
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background-color: #ffa64d;
+    color: #000;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: #ff8c1a;
+}
+
+/* Login and Register Sections */
+.login, .register {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+.login h2, .register h2 {
+    text-align: center;
+    color: #1a3c34;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.login form, .register form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login input, .register input,
+.login select, .register select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login input:focus, .register input:focus,
+.login select:focus, .register select:focus {
+    border-color: #4a7c59;
+}
+
+.login label, .register label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login button, .register button {
+    background-color: #4a7c59;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login button:hover, .register button:hover {
+    background-color: #3a5c49;
+}
+
+#login-message, #register-message {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #d9534f;
+}
+
+/* Product Grid */
+.product-list {
+    padding: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    max-width: 150px; /* Reduced image size */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.product-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.product-card .price {
+    font-weight: bold;
+    color: #e67e22;
+}
+
+.product-card button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.product-card button:hover {
+    background-color: #555;
+}
+
+/* Cart Section */
+.cart {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.cart h2 {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-item button {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart-item button:hover {
+    background-color: #d35400;
+}
+
+#cart-total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.cart button {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart button:hover {
+    background-color: #d35400;
+}
+
+/* Wishlist Section */
+#wishlist {
+    padding: 20px;
+    text-align: center;
+}
+
+#wishlist h2 {
+    margin-bottom: 20px;
+}
+
+.wishlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-item button {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.wishlist-item button:hover {
+    background-color: #d35400;
+}
+
+/* Order History Section */
+.order-history {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.order-history h2 {
+    margin-bottom: 20px;
+}
+
+.order {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+}
+
+.order p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.order ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.order ul li {
+    margin: 5px 0;
+    color: #333;
+}
+
+.order button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.order button:hover {
+    background-color: #555;
+}
+
+/* Admin Panel Styles */
+.admin {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.admin h2 {
+    margin-bottom: 20px;
+}
+
+.admin-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section h3 {
+    margin: 0 0 20px;
+    font-size: 1.5rem;
+}
+
+/* Edit Review Form */
+.review form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review form textarea,
+.review form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.review form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.review form button[type="button"] {
+    background-color: #e67e22;
+}
+
+.review form button:hover {
+    background-color: #555;
+}
+
+.review form button[type="button"]:hover {
+    background-color: #d35400;
+}
+
+/* Footer */
+footer {
+    background-color: #1a3c34;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+
+footer .footer-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .login, .register {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}

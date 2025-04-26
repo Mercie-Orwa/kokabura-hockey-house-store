@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - KOKABURA HOCKEY HOUSE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-slider">
+        <img src="images1/sticks2.jpg" alt="Background 1">
+        <img src="images1/goalers pads.jpg" alt="Background 2">
+        <img src="images1/picture 1.jpg" alt="Background 3">
+    </div>
+    <header>
+        <h1>KOKABURA HOCKEY HOUSE</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="order-history.html">Order History</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="product-list">
+            <h2>Featured Products</h2>
+            <input type="text" id="search-input" placeholder="Search products..." oninput="filterProducts()">
+            <div id="product-container" class="product-grid"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 KOKABURA HOCKEY HOUSE. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

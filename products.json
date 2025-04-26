@@ -1,0 +1,33 @@
+
+[
+    {
+        "id": 1,
+        "name": "Hockey Stick",
+        "price": 12000,
+        "image":"images1/sticks2.jpg" ,
+        "description": "High-quality hockey stick for professionals"
+    },
+    {
+        "id": 2,
+        "name": "Hockey Ball",
+        "price": 3000,
+        "image": "images1/balls.jpg",
+        "description": "Durable hockey ball for practice."
+    },
+    {
+        "id": 3,
+        "name": "Hockey Gloves",
+        "price": 1000,
+        "image": "images1/knuckle guard.jpg",
+        "description": "Comfortable gloves for better grip."
+    },
+    {
+        "id":4,
+        "name":"Goalers pad",
+        "price":6000,
+        "image":"images1/goalers pads.jpg",
+        "description":"Best pads out there"
+
+    }
+
+]
